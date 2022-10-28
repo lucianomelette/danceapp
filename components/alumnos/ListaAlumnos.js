@@ -28,9 +28,9 @@ export default function ListaAlumnos() {
         data={alumnos}
         renderItem={({item}) =>
           <View style={styles.row}>
-            <Text style={styles.text}>Id: {item.id}</Text>
-            <Text style={styles.text}>Nombre: {item.nombre}</Text>
-            <Text style={styles.text}>Dirección: {item.direccion}</Text>
+            <Text style={[styles.text, {flexGrow: 1}]}>{item.id}</Text>
+            <Text style={[styles.text, {flexGrow: 2}]}>{item.nombre}</Text>
+            <Text style={[styles.text, {flexGrow: 2}]}>{item.direccion}</Text>
           </View>
         }>
       </FlatList>
@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 15,
-    fontFamily: "Roboto",
     fontWeight: "600",
     marginRight: 30,
   }

@@ -45,14 +45,11 @@ export const saveAlumno = (tx, alumno) => {
     `INSERT INTO ${tableName} (nombre, direccion) values ` +
     `('${alumno.nombre}', '${alumno.direccion}')`;
   const result = tx.executeSql(insertQuery, null, 1);
-  tx.executeSql(`select * from ${tableName}`, [], (_, { rows }) =>
-          console.log("rows:", JSON.stringify(rows))
-        );
-    return result;
+  return result;
 };
 
 export const deleteAlumno = async (db, id) => {
-  const deleteQuery = `DELETE from ${tableName} where rowid = ${id}`;
+  const deleteQuery = `DELETE from ${tableName} where id = ${id}`;
   await db.executeSql(deleteQuery);
 };
 

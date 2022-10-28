@@ -17,6 +17,5 @@ const styles = StyleSheet.create({
   },
   label: {
     fontWeight: "800",
-    fontFamily: "Roboto",
   },
 });
