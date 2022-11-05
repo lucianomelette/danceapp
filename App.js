@@ -1,27 +1,18 @@
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useEffect } from "react";
 
-import HomeScreen from "./components/alumnos/Home";
-import InscribirAlumnoScreen from "./components/alumnos/InscribirAlumno";
-import ListaAlumnosScreen from "./components/alumnos/ListaAlumnos";
-import InscribirAlumnoReduxScreen from "./src/features/alumnos/InscribirAlumnoRedux";
-
-import { openDatabase, createTable } from "./repository/db";
+import HomeScreen from "./src/features/Home/Home";
+import InscribirAlumnoScreen from "./src/features/InscripcionAlumnos/InscribirAlumno";
+import TomarFotoAlumnoScreen from "./src/features/InscripcionAlumnos/TomarFotoAlumno";
+import ListaAlumnosScreen from "./src/features/ListadoAlumnos/ListaAlumnos";
 
 import store from './src/app/store';
 import { Provider } from 'react-redux';
 
 const Stack = createNativeStackNavigator();
-const db = openDatabase();
 
 export default function App() {
-
-  useEffect(() => {
-    db.transaction((tx) => createTable(tx));
-  }, []);
-
   return (
     <Provider store={store}>
       <NavigationContainer>
@@ -37,9 +28,9 @@ export default function App() {
             options={{ title: "Inscripción de alumnos" }}
           />
           <Stack.Screen
-            name="InscribirAlumnoRedux"
-            component={InscribirAlumnoReduxScreen}
-            options={{ title: "Inscripción de alumnos - Redux" }}
+            name="TomarFotoAlumno"
+            component={TomarFotoAlumnoScreen}
+            options={{ title: "Foto del Alumno" }}
           />
           <Stack.Screen
             name="ListaAlumnos"
