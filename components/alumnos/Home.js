@@ -11,6 +11,10 @@ export default function Home({ navigation, route }) {
     navigation.navigate("InscribirAlumno");
   };
 
+  const handleInscribirAlumnoRedux = () => {
+    navigation.navigate("InscribirAlumnoRedux");
+  };
+
   const handleListaAlumnos = () => {
     navigation.navigate("ListaAlumnos");
   };
@@ -20,7 +24,7 @@ export default function Home({ navigation, route }) {
       <DTitle>Elegí una opción:</DTitle>
 
       <DButton onPress={handleInscribirAlumno}>Inscribir alumno</DButton>
-
+      <DButton onPress={handleInscribirAlumnoRedux}>Inscribir alumno Redux</DButton>
       <DButton onPress={handleListaAlumnos}>Ver lista de alumnos</DButton>
 
       <StatusBar style="auto" />
